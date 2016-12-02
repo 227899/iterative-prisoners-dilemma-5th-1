@@ -8,7 +8,7 @@
 
 team_name = 'Team_Name' # Only 10 chars displayed.
 strategy_name = 'BETRAYAL'
-strategy_description = 'IT BETRAYS'
+strategy_description = 'Betrayal only loses to another only betray'
     
 def move(my_history, their_history, my_score, their_score):
     ''' Arguments accepted: my_history, their_history are strings.
@@ -25,7 +25,7 @@ def move(my_history, their_history, my_score, their_score):
     
     # Analyze my_history and their_history and/or my_score and their_score.
     # Decide whether to return 'c' or 'b'.
-    
+    #Return betray to either gain 100 points from going against a collude or lose 250 points going against a betray
     return 'b'
 
     '''
