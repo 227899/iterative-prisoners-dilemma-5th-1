@@ -26,9 +26,31 @@ def move(my_history, their_history, my_score, their_score):
     # Analyze my_history and their_history and/or my_score and their_score.
     # Decide whether to return 'c' or 'b'.
     #Return betray to either gain 100 points from going against a collude or lose 250 points going against a betray
-    return 'b'
-
-    '''
+    if len(their_history)==0:
+        return 'c'
+    elif their_history-[1]=='b':
+        result=BETRAYED(my_history, their_history, my_score, their_score)
+        return result
+    else:
+        ending=We_Care(my_history, their_history, my_score, their_score)
+        return ending
+def BETRAYED(my_history, their_history, my_score, their_score):
+    if my_score >= 1000 and len(their_history) > 1:
+        return 'c'
+    elif my_score < 1000 and len(their_history) > 1:
+        return 'b'
+    else:
+        return 'c'
+def We_Care(my_history, their_history, my_score, their_score):
+    if len(my_history) == 1:
+        return 'c'
+    elif len(my_history) > 1 and their_history[-1] == 'c':
+        return 'c' #BECAUSE WE CARE
+    elif len(my_history) > 1 and their_history[-1] == 'b':
+        return 'b' #BECAUSE WE DON'T CARE FOR HATERS
+    else:
+        return 'c' #Just in case all other if statements don't trigger
+'''
 def test_move(my_history, their_history, my_score, their_score, result):
     calls move(my_history, their_history, my_score, their_score)
     from this module. Prints error if return value != result.
